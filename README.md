@@ -1,0 +1,2 @@
+# gawean
+personal nuklir
