@@ -10,6 +10,56 @@
     <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
     {!! ReCaptcha::htmlScriptTagJsApi() !!}
+
+    <style>
+        /* check if user on phone */
+        @media (max-width: 767px) {
+            #label_optional_settings {
+                font-size: 12px;
+            }
+
+            #check-optional-settings {
+                width: 12px;
+                height: 12px;
+            }
+        }
+
+        /* check if user on tablet */
+        @media (min-width: 768px) and (max-width: 991px) {
+            #label_optional_settings {
+                font-size: 14px;
+            }
+
+            #check-optional-settings {
+                width: 14px;
+                height: 14px;
+            }
+        }
+
+        /* check if user on desktop */
+        @media (min-width: 992px) and (max-width: 1199px) {
+            #label_optional_settings {
+                font-size: 15px;
+            }
+
+            #check-optional-settings {
+                width: 15px;
+                height: 15px;
+            }
+        }
+
+        /* check if user on large desktop */
+        @media (min-width: 1200px) {
+            #label_optional_settings {
+                font-size: 17px;
+            }
+
+            #check-optional-settings {
+                width: 17px;
+                height: 17px;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -120,7 +170,8 @@
                                     <div class="form-check" id="div_check_optional_settings">
                                         <input class="form-check-input" type="checkbox" name="optional_settings"
                                             id="check-optional-settings">
-                                        <label class="form-check-label" for="check-optional-settings">
+                                        <label class="form-check-label" for="check-optional-settings"
+                                            id="label_optional_settings">
                                             Optional Settings (With Password)
                                         </label>
                                         <hr />
