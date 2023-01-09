@@ -186,6 +186,7 @@ class LandingController extends Controller
                     'url' => $data->url,
                     'kode' => $data->kode,
                     'jenis' => 'success-create-kode',
+                    'category' => $data->category,
                 ]);
             }
         } elseif (preg_match('/' . env('APP_KODE') . '-(.+)/', $kode)) {
@@ -214,15 +215,10 @@ class LandingController extends Controller
 
     public function store_image($image, $category, $password, $expired)
     {
-        $file = $image;
-        $name = time() . '.' . $file->getClientOriginalExtension();
-        $file->move(public_path('images'), $name);
-        $path = public_path('images/' . $name);
-
         $kd = env('APP_KODE') . '-IMG-' . Str::upper(Str::random(4));
         if (!Link::where('kode', $kd)->exists()) {
             $data = Link::create([
-                'url' => $path,
+                'url' => $image->store('images', 'public'),
                 'kode' => $kd,
                 'category' => $category,
                 'password' => $password,
@@ -233,7 +229,7 @@ class LandingController extends Controller
                 'url' => $data->url,
                 'kode' => $data->kode,
                 'jenis' => 'success-create-image',
-                'image_name' => $name,
+                'image_name' => $data->url
             ]);
         }
     }
