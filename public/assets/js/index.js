@@ -30,6 +30,28 @@ $("#copy").on("click", function(){
     $temp.remove();
   });
 
+  $("#copy-text").on("click", function(){
+    var $temp = $("<input>");
+    $("body").append($temp);
+    $temp.val($("#resultText").text()).select();
+    document.execCommand("copy");
+    const Toast = Swal.mixin({
+        toast: true,
+        position: 'top-end',
+        showConfirmButton: false,
+        timer: 3000,
+        onOpen: (toast) => {
+          toast.addEventListener('mouseenter', Swal.stopTimer)
+          toast.addEventListener('mouseleave', Swal.resumeTimer)
+        }
+      })
+      Toast.fire({
+        icon: 'success',
+        title: "Text berhasil disalin."
+      })
+    $temp.remove();
+  });
+
 $(".wrapper__slick-customer").slick({
     arrows: false,
     dots: false,
@@ -70,4 +92,3 @@ $("a[href^='#click-']").on("click", function (e) {
       1000
       );
     });
-    

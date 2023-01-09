@@ -113,7 +113,7 @@
                                     <div class="form-group" id="div_choose_category">
                                         <select class="form-control" id="choose-category" name="category">
                                             <option value="kode">Kode/Url</option>
-                                            <option value="image">Image</option>
+                                            {{-- <option value="image">Image</option> --}}
                                             <option value="text">Text</option>
                                         </select>
                                     </div>
@@ -134,11 +134,11 @@
                                         <input type="text" class="form-control @error('kode') is-invalid @enderror"
                                             name="kode" id="kode_field" autocomplete="off">
                                     </div>
-                                    <div class="form-group" id="image_category" style="display: none">
+                                    {{-- <div class="form-group" id="image_category" style="display: none">
                                         <h5 class="semi-bold font__size--14 text__14-1024 color__gray-1"> Image </h5>
                                         <input type="file" class="form-control @error('image') is-invalid @enderror"
                                             name="image" id="image_field" autocomplete="off">
-                                    </div>
+                                    </div> --}}
                                     <div class="form-group" id="text_category" style="display: none">
                                         <h5 class="semi-bold font__size--14 text__14-1024 color__gray-1"> Text </h5>
                                         <textarea class="form-control @error('text') is-invalid @enderror" name="text"
@@ -861,7 +861,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 <script src="{{ asset('assets/js/index.js') }}"></script>
-<script src="https://cdn.jsdelivr.net/npm/gasparesganga-jquery-loading-overlay@2.1.7/dist/loadingoverlay.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gasparesganga-jquery-loading-overlay@2.1.7/dist/loadingoverlay.min.js">
+</script>
 
 <script>
     $(document).ajaxStart(function(){

@@ -159,7 +159,10 @@ class LandingController extends Controller
         if ($category == "kode") {
             return $this->store_kode($kode, $category, $password, $expired);
         } else if ($category == "image") {
-            return $this->store_image($request->file('image'), $category, $password, $expired);
+            // abort
+            return abort(404);
+
+            // return $this->store_image($request->file('image'), $category, $password, $expired);
         } else if ($category == "text") {
             return $this->store_text($kode, $category, $password, $expired);
         } else {
@@ -236,7 +239,7 @@ class LandingController extends Controller
 
     public function store_text($kode, $category, $password, $expired)
     {
-        $kd = env('APP_KODE') . '-TXT' . Str::upper(Str::random(4));
+        $kd = env('APP_KODE') . '-TXT-' . Str::upper(Str::random(4));
         if (!Link::where('kode', $kd)->exists()) {
             $data = Link::create([
                 'url' => $kode,
